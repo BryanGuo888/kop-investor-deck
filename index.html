@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOP Global Network Limited · 投资人展示</title>
+
+<style>
+  :root {
+    --bg: #0A1020;
+    --bg-soft: #0D1730;
+    --panel: #121E3C;
+    --panel-2: #18264A;
+    --line: #2A3A60;
+    --text: #EAF0FF;
+    --text-soft: #9DAECF;
+    --text-dim: #66789F;
+    --primary: #4A7DE0;
+    --primary-2: #7AA1FF;
+    --accent: #C9A227;
+    --accent-2: #E0BC4A;
+    --good: #3FB98E;
+    --warn: #E0A458;
+    --bad: #E57373;
+    --kpop: #2FB6B0;
+    --russia: #2FB6B0;
+    --shadow: 0 10px 30px rgba(0,0,0,.4);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(180deg, #0A1020 0%, #0B1430 100%);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Top nav */
+  nav.topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(11,16,32,.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 36px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+  .brand-mark {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: linear-gradient(135deg, #C9A227 0%, #4A7DE0 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 800; font-size: 14px;
+  }
+  .brand-text { font-size: 14px; letter-spacing: .3px; }
+  .brand-text small { color: var(--text-soft); font-weight: 400; margin-left: 6px; }
+  .nav-links { display: flex; gap: 4px; }
+  .nav-links a {
+    color: var(--text-soft); text-decoration: none; font-size: 13px;
+    padding: 6px 12px; border-radius: 6px; transition: all .15s;
+  }
+  .nav-links a:hover { background: var(--panel); color: var(--text); }
+
+  /* Sections */
+  section.slide {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 72px 36px 60px;
+    border-bottom: 1px solid var(--line);
+  }
+  section.slide:last-of-type { border-bottom: none; }
+  .eyebrow {
+    display: inline-block; font-size: 12px; letter-spacing: 1.5px;
+    color: var(--accent); text-transform: uppercase; font-weight: 600;
+    padding: 4px 10px; border: 1px solid rgba(201,162,39,.35);
+    border-radius: 999px; margin-bottom: 18px;
+  }
+  h1 { font-size: 44px; line-height: 1.2; margin: 0 0 12px; font-weight: 800; letter-spacing: -.5px; }
+  h2 { font-size: 30px; line-height: 1.25; margin: 0 0 10px; font-weight: 700; letter-spacing: -.3px; }
+  h3 { font-size: 18px; line-height: 1.35; margin: 0 0 8px; font-weight: 600; }
+  p.lede { font-size: 17px; color: var(--text-soft); max-width: 760px; margin: 0 0 32px; }
+
+  /* COVER */
+  .cover { padding-top: 96px; padding-bottom: 80px; }
+  .cover h1 { font-size: 56px; color: var(--text); letter-spacing: -.5px; }
+  .cover-tags { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 34px; }
+  .cover-tags .t {
+    font-size: 14px; font-weight: 700; color: var(--text);
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: 999px; padding: 7px 16px;
+  }
+  .cover-meta { display: flex; gap: 28px; flex-wrap: wrap; color: var(--text-dim); font-size: 13px; }
+  .cover-meta span strong { color: var(--text); margin-left: 6px; font-weight: 600; }
+
+  /* KPI strip */
+  .kpi-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 40px;
+  }
+  .kpi {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px 22px 18px;
+  }
+  .kpi .label { font-size: 12px; color: var(--text-soft); text-transform: uppercase; letter-spacing: 1px; }
+  .kpi .value { font-size: 30px; font-weight: 800; margin-top: 6px; }
+  .kpi .sub { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+  .kpi.accent .value { color: var(--accent); }
+  .kpi.good .value { color: var(--good); }
+  .kpi.primary .value { color: var(--primary-2); }
+
+  /* MARKET */
+  .market-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px; }
+  .market-col {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 16px; padding: 24px 22px; border-top: 3px solid var(--accent);
+  }
+  .market-col .m-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .market-col .m-num {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: rgba(201,162,39,.12); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .market-col .m-title { font-size: 16px; font-weight: 700; }
+  .market-col .m-sub { font-size: 12px; color: var(--text-dim); margin-bottom: 14px; }
+  .market-col ul { margin: 0; padding: 0; list-style: none; }
+  .market-col ul li {
+    font-size: 13px; color: var(--text-soft); padding: 9px 0;
+    border-bottom: 1px dashed var(--line); display: flex; gap: 8px;
+  }
+  .market-col ul li::before { content: "—"; color: var(--accent); }
+  .m-head.hero-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap; margin-bottom: 2px;
+  }
+  .m-title-wrap { display: flex; align-items: center; gap: 10px; }
+  .m-hero-num {
+    font-size: 30px; font-weight: 800; color: var(--accent);
+    font-variant-numeric: tabular-nums; letter-spacing: -0.5px; line-height: 1;
+  }
+  .m-hero-cap { font-size: 12px; color: var(--text-dim); margin: 0 0 16px; }
+  .market-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat {
+    background: rgba(255,255,255,.02); border: 1px solid var(--line);
+    border-radius: 10px; padding: 12px 14px;
+  }
+  .stat-num {
+    font-size: 19px; font-weight: 800; color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-label { font-size: 11px; color: var(--text-dim); margin-top: 4px; line-height: 1.45; }
+  .market-note { font-size: 11px; color: var(--text-dim); margin-top: 16px; line-height: 1.5; }
+
+  /* DISCLAIMER / 测算口径 */
+  .disclaimer {
+    margin-top: 18px; font-size: 12px; color: var(--text-soft); line-height: 1.6;
+    border-left: 2px solid var(--accent); padding: 9px 14px;
+    background: rgba(201,162,39,.06); border-radius: 0 8px 8px 0;
+  }
+  .disclaimer b { color: var(--accent); font-weight: 700; }
+
+  /* Table horizontal scroll wrapper */
+  .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .data-table { min-width: 760px; }
+  .scroll-hint { display: none; font-size: 11px; color: var(--text-dim); margin-top: 8px; text-align: right; }
+
+  /* TEAM */
+  .org {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+    padding: 32px; margin-top: 24px;
+  }
+  .org-entity {
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: 12px; padding: 16px 20px; text-align: center;
+    font-weight: 700; font-size: 16px; max-width: 380px; margin: 0 auto 18px;
+  }
+  .org-ceo {
+    background: linear-gradient(135deg, #1E2A52 0%, #243B82 100%);
+    border: 1px solid #3B55A6; border-radius: 12px; padding: 18px 20px;
+    text-align: center; max-width: 260px; margin: 0 auto;
+    box-shadow: var(--shadow);
+  }
+  .org-ceo .name { font-size: 20px; font-weight: 800; }
+  .org-ceo .role { font-size: 13px; color: var(--primary-2); margin-top: 2px; }
+  .org-line {
+    display: flex; justify-content: center; margin: 8px 0;
+  }
+  .org-line::before { content: ""; width: 1px; height: 24px; background: var(--line); }
+
+  .org-branches {
+    display: grid; grid-template-columns: 3fr 1fr; gap: 24px; margin-top: 12px;
+    align-items: stretch;
+  }
+  .org-kop-side {
+    background: rgba(79,124,255,.06); border: 1px dashed rgba(79,124,255,.35);
+    border-radius: 14px; padding: 18px;
+  }
+  .org-kop-side .label {
+    font-size: 11px; color: var(--primary-2); letter-spacing: 1.5px;
+    font-weight: 700; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .org-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  }
+  .org-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 14px 12px;
+  }
+  .org-card .lead-name { font-size: 15px; font-weight: 700; }
+  .org-card .lead-role { font-size: 12px; color: var(--text-soft); margin-top: 2px; }
+  .org-card .lead-team {
+    margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line);
+    font-size: 12px; color: var(--text-dim);
+  }
+  .org-card .lead-team div { padding: 2px 0; }
+
+  .org-other-side {
+    background: rgba(47,182,176,.06); border: 1px dashed rgba(47,182,176,.4);
+    border-radius: 14px; padding: 18px;
+    display: flex; flex-direction: column;
+  }
+  .org-other-side .label {
+    font-size: 11px; color: var(--kpop); letter-spacing: 1.5px;
+    font-weight: 700; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .org-other-side .label .badge {
+    display: inline-block; margin-left: 8px; padding: 2px 8px; font-size: 10px;
+    font-weight: 700; letter-spacing: .3px; color: var(--kpop);
+    background: rgba(47,182,176,.15); border: 1px solid rgba(47,182,176,.4);
+    border-radius: 999px; text-transform: none; vertical-align: middle;
+  }
+  .org-card.other { background: rgba(47,182,176,.08); border-color: rgba(47,182,176,.3); }
+  .org-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .org-chips .chip {
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: 999px; padding: 6px 14px; font-size: 13px; color: var(--text-soft);
+  }
+  .org-chips .chip b { color: var(--text); font-weight: 800; font-size: 15px; margin-right: 4px; }
+  .org-chips .chip.kpop { border-color: rgba(47,182,176,.4); background: rgba(47,182,176,.1); }
+  .org-chips .chip.kpop b { color: var(--kpop); }
+
+  .org-salary {
+    margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line);
+  }
+  .org-salary .salary-head {
+    font-size: 12px; color: var(--text-soft); letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 12px; font-weight: 600;
+  }
+  .org-salary .salary-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .org-salary .salary-col {
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: 12px; padding: 16px 18px;
+  }
+  .org-salary .salary-col.after { border-color: rgba(255,200,87,.4); background: rgba(255,200,87,.06); }
+  .org-salary .salary-tag {
+    font-size: 13px; font-weight: 700; color: var(--primary-2); margin-bottom: 10px;
+  }
+  .org-salary .salary-col.after .salary-tag { color: var(--accent); }
+  .org-salary .salary-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 6px 0; border-bottom: 1px dashed var(--line);
+  }
+  .org-salary .salary-row:last-child { border-bottom: none; }
+  .org-salary .salary-row span { font-size: 13px; color: var(--text-soft); }
+  .org-salary .salary-row strong {
+    font-size: 20px; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums;
+  }
+  .org-salary .salary-col.after .salary-row strong { color: var(--accent); }
+
+  /* PAYMENT */
+  .region-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px;
+  }
+  .region-card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 20px 18px; min-height: 200px;
+    display: flex; flex-direction: column;
+  }
+  .region-card .region-name {
+    font-size: 18px; font-weight: 800; color: var(--primary-2);
+  }
+  .region-card .region-name small {
+    display: block; font-size: 11px; color: var(--text-dim);
+    font-weight: 500; margin-top: 2px; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .region-card .partners {
+    margin-top: 16px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .region-card .partner {
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: 8px; padding: 8px 12px; font-size: 13px; font-weight: 600;
+  }
+  .region-card .partner .desc {
+    display: block; font-size: 11px; color: var(--text-dim);
+    font-weight: 400; margin-top: 2px;
+  }
+  .region-card.russia { background: linear-gradient(180deg, rgba(47,182,176,.08) 0%, var(--panel) 100%); border-color: rgba(47,182,176,.3); }
+  .region-card.russia .region-name { color: var(--kpop); }
+  .region-card.elastic {
+    background: linear-gradient(180deg, rgba(255,200,87,.06) 0%, var(--panel) 100%);
+    border-color: rgba(255,200,87,.35);
+  }
+  .region-card.elastic .region-name { color: var(--accent); }
+  .region-card.elastic .elastic-desc {
+    margin-top: 12px; font-size: 13px; color: var(--text-soft); line-height: 1.6;
+  }
+
+  .strategy-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;
+  }
+  .strategy-card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-left: 3px solid var(--primary);
+    border-radius: 10px; padding: 14px 18px;
+  }
+  .strategy-card.b { border-left-color: var(--accent); }
+  .strategy-card .t { font-size: 15px; font-weight: 700; }
+  .strategy-card .d { font-size: 13px; color: var(--text-soft); margin-top: 4px; }
+  .block-title { font-size: 18px; font-weight: 700; color: var(--text); margin: 4px 0 0; }
+
+  /* CUSTOMERS / FORECAST */
+  .metric-strip {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px;
+  }
+  .metric {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; padding: 18px 20px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .metric .v { font-size: 32px; font-weight: 800; color: var(--accent); }
+  .metric .l { font-size: 13px; color: var(--text-soft); }
+  .metric .l strong { display: block; color: var(--text); font-size: 14px; margin-bottom: 2px; }
+
+  .chart-wrap {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 24px; margin-top: 28px;
+  }
+  .chart-wrap .title-row {
+    display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px;
+  }
+  .chart-wrap .title-row h3 { margin: 0; }
+  .chart-wrap .title-row .unit { font-size: 12px; color: var(--text-dim); }
+  .chart-box { position: relative; margin-top: 4px; }
+  .chart-box svg { width: 100%; height: auto; display: block; }
+
+  .data-table {
+    width: 100%; border-collapse: collapse;
+    margin-top: 28px; font-size: 13px;
+    background: var(--panel); border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .data-table th, .data-table td {
+    padding: 10px 12px; text-align: right; border-bottom: 1px solid var(--line);
+  }
+  .data-table th:first-child, .data-table td:first-child { text-align: left; }
+  .data-table th {
+    background: var(--panel-2); color: var(--text-soft);
+    font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .5px;
+  }
+  .data-table tr:last-child td { border-bottom: none; font-weight: 700; background: var(--panel-2); }
+  .data-table .col-total { color: var(--accent); }
+  .data-table .col-cum { color: var(--good); }
+
+  /* FINANCING */
+  .ask-hero {
+    background: linear-gradient(135deg, #1B2547 0%, #243B82 100%);
+    border: 1px solid #3B55A6; border-radius: 18px; padding: 36px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;
+  }
+  .ask-hero .left .ask-label { font-size: 12px; color: var(--text-soft); letter-spacing: 1.5px; text-transform: uppercase; }
+  .ask-hero .left .ask-num { font-size: 64px; font-weight: 800; color: var(--accent); line-height: 1; margin-top: 6px; }
+  .ask-hero .left .ask-sub { font-size: 14px; color: var(--text-soft); margin-top: 6px; }
+  .ask-hero .right { display: flex; flex-direction: column; gap: 10px; min-width: 280px; }
+  .ask-hero .right div { font-size: 13px; color: var(--text-soft); display: flex; gap: 10px; }
+  .ask-hero .right div::before { content: "●"; color: var(--good); }
+  .ask-hero .right div.warn::before { color: var(--warn); }
+
+  .use-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px;
+  }
+  .use-card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px 22px 20px;
+  }
+  .use-card.primary { border-left: 3px solid var(--accent); }
+  .use-card.green { border-left: 3px solid var(--good); }
+  .use-card.purple { border-left: 3px solid var(--kpop); }
+  .use-card.blue { border-left: 3px solid var(--primary); }
+  .use-card .head { display: flex; justify-content: space-between; align-items: baseline; }
+  .use-card .head h3 { margin: 0; }
+  .use-card .head .pct { font-size: 22px; font-weight: 800; color: var(--accent); }
+  .use-card.green .head .pct { color: var(--good); }
+  .use-card.purple .head .pct { color: var(--kpop); }
+  .use-card.blue .head .pct { color: var(--primary-2); }
+  .use-card .desc { font-size: 13px; color: var(--text-soft); margin: 8px 0 12px; }
+  .use-card ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--text-soft); }
+  .use-card ul li { margin-bottom: 4px; }
+  .use-card .timeline {
+    margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--line);
+    font-size: 12px; color: var(--text-dim);
+  }
+  .use-card .timeline strong { color: var(--accent); }
+
+  .licenses {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px;
+  }
+  .license {
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: 8px; padding: 10px 12px;
+  }
+  .license .name { font-size: 13px; font-weight: 700; }
+  .license .where { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+
+  /* Footer */
+  footer {
+    max-width: 1180px; margin: 0 auto; padding: 40px 36px 60px;
+    color: var(--text-dim); font-size: 12px; text-align: center;
+  }
+  footer .divider { height: 1px; background: var(--line); margin: 0 auto 24px; max-width: 200px; }
+
+  /* Print */
+  @media print {
+    body { background: white; color: #111; }
+    nav.topbar { display: none; }
+    section.slide { border-bottom: 1px solid #ddd; page-break-after: always; padding: 32px 0; }
+    .kpi, .org, .org-card, .org-kop-side, .org-other-side, .org-entity, .org-ceo,
+    .region-card, .strategy-card, .metric, .chart-wrap, .data-table, .ask-hero, .use-card, .license {
+      background: white; color: #111; border-color: #ddd;
+    }
+    .org-ceo { background: #f3f4f6; }
+    h1, h2, h3, p, td, th, .kpi .value, .metric .v, .use-card .head .pct, .ask-hero .left .ask-num { color: #111; }
+    .eyebrow, .org-card .lead-role, .strategy-card .d, .use-card .desc, .use-card ul { color: #555; }
+  }
+
+  /* Responsive — mobile adaptive (≤900 single column, ≤560 compact KPI) */
+  @media (max-width: 900px) {
+    h1 { font-size: clamp(28px, 5.5vw, 40px); }
+    h2 { font-size: 24px; }
+    .cover h1 { font-size: clamp(26px, 7vw, 44px); }
+    .kpi-row, .metric-strip, .licenses,
+    .use-grid, .strategy-row, .region-grid, .market-grid,
+    .org-branches, .org-cards, .org-salary .salary-cols { grid-template-columns: 1fr; }
+    nav.topbar { padding: 10px 14px; }
+    .brand-text small { display: none; }
+    .nav-links { display: flex; overflow-x: auto; gap: 2px; -webkit-overflow-scrolling: touch; }
+    .nav-links a { white-space: nowrap; padding: 6px 10px; font-size: 12px; }
+    section.slide { padding: 48px 18px 36px; }
+  }
+  @media (max-width: 560px) {
+    .kpi-row, .metric-strip { grid-template-columns: repeat(2, 1fr); }
+    .licenses { grid-template-columns: repeat(2, 1fr); }
+    .cover h1 { font-size: clamp(24px, 8vw, 34px); }
+    h2 { font-size: 22px; }
+    .org { padding: 18px; }
+    .ask-hero { padding: 22px; }
+    .ask-hero .left .ask-num { font-size: 44px; }
+    .region-card, .market-col, .use-card { min-height: 0; }
+    .market-stats { grid-template-columns: 1fr; }
+    .scroll-hint { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="brand">
+    <div class="brand-mark">K</div>
+    <div class="brand-text">KOP Global Network Limited <small>投资人展示 · Sep 2026</small></div>
+  </div>
+  <div class="nav-links">
+    <a href="#cover">概览</a>
+    <a href="#market">市场</a>
+    <a href="#team">团队</a>
+    <a href="#payment">支付矩阵</a>
+    <a href="#traction">业务预测</a>
+    <a href="#financing">融资计划</a>
+  </div>
+</nav>
+
+<!-- ============== COVER ============== -->
+<section class="slide cover" id="cover">
+  <span class="eyebrow">Investor Deck · 2026</span>
+  <h1>KOP 建站 SAAS 及 AI 聚合站融资</h1>
+  <div class="cover-tags">
+    <span class="t">AI 建站</span>
+    <span class="t">跨境支付</span>
+    <span class="t">合规 SaaS</span>
+  </div>
+  <div class="cover-meta">
+    <span>公司主体<strong>KOP Global Network Limited</strong></span>
+    <span>文档日期<strong>2026-09-02</strong></span>
+    <span>本轮融资<strong>10M USD</strong></span>
+    <span>KOP 主体团队<strong>14 人</strong></span>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="label">2027.12 累计收入</div>
+      <div class="value">13.68M</div>
+      <div class="sub">USD · 含 2026.09 前历史基线 ~3.44M</div>
+    </div>
+    <div class="kpi primary">
+      <div class="label">16 个月预测合计</div>
+      <div class="value">10.24M</div>
+      <div class="sub">USD · 2026.09 — 2027.12 新增收入</div>
+    </div>
+    <div class="kpi accent">
+      <div class="label">已落地商户</div>
+      <div class="value">86</div>
+      <div class="sub">金流游戏 17 / 工具游戏 20 · 9 家渠道</div>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <b>测算口径：</b>13.68M 为 2027.12 累计收入（含 2026.09 前历史基线约 3.44M）；10.24M 为 2026.09–2027.12 纯新增预测收入，单位均为 USD。
+  </div>
+</section>
+
+<!-- ============== MARKET ============== -->
+<section class="slide" id="market">
+  <span class="eyebrow">00 · Market Opportunity</span>
+  <h2>市场机遇：问题、时机与空间</h2>
+  <p class="lede">游戏出海商户正同时面对建站、支付、合规三道门槛；AI 与监管趋势让一站式 SaaS 成为刚需，目标市场存在明确可获取空间。</p>
+  <div class="market-grid">
+    <div class="market-col">
+      <div class="m-head"><div class="m-num">01</div><div class="m-title">痛点 · Problem</div></div>
+      <div class="m-sub">游戏商户的三道门槛</div>
+      <ul>
+        <li>自建站周期长、试错成本高</li>
+        <li>支付通道碎片化、成功率低</li>
+        <li>合规牌照门槛高、跨境受限</li>
+      </ul>
+    </div>
+    <div class="market-col">
+      <div class="m-head"><div class="m-num">02</div><div class="m-title">为什么是现在 · Why Now</div></div>
+      <div class="m-sub">三股趋势同时成熟</div>
+      <ul>
+        <li>AI 建站技术成熟，成本骤降</li>
+        <li>游戏出海监管趋严，合规成刚需</li>
+        <li>新兴市场支付基建缺口扩大</li>
+      </ul>
+    </div>
+    <div class="market-col">
+      <div class="m-head hero-head">
+        <div class="m-title-wrap"><div class="m-num">03</div><div class="m-title">市场空间 · Market</div></div>
+        <div class="m-hero-num">$201.6B</div>
+      </div>
+      <div class="m-hero-cap">TAM · 全球游戏市场 · 2025</div>
+      <div class="market-stats">
+        <div class="stat">
+          <div class="stat-num">~$12B</div>
+          <div class="stat-label">SAM · 跨境游戏商户 SaaS（测算）</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">~$120M</div>
+          <div class="stat-label">SOM · 3 年可获取份额（目标）</div>
+        </div>
+      </div>
+      <div class="market-note">数据来源：Newzoo《2025 全球游戏市场报告》</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TEAM ============== -->
+<section class="slide" id="team">
+  <span class="eyebrow">01 · Team Architecture</span>
+  <h2>团队架构</h2>
+  <div class="org-chips">
+    <span class="chip"><b>1</b> CEO</span>
+    <span class="chip"><b>4</b> 业务线</span>
+    <span class="chip"><b>14</b> KOP 主体团队</span>
+  </div>
+
+  <div class="org">
+    <div class="org-entity">KOP Global Network Limited（主体）</div>
+    <div class="org-line"></div>
+    <div class="org-ceo">
+      <div class="name">蔡志豪</div>
+      <div class="role">CEO</div>
+    </div>
+    <div class="org-line"></div>
+
+    <div class="org-branches">
+      <!-- KOP 主体侧 -->
+      <div class="org-kop-side">
+        <div class="label">KOP 主体下业务线 · 4 条</div>
+        <div class="org-cards">
+          <div class="org-card">
+            <div class="lead-name">MOR 落地</div>
+            <div class="lead-role">负责人</div>
+            <div class="lead-team">
+              <div>执行 · 1 人</div>
+            </div>
+          </div>
+          <div class="org-card">
+            <div class="lead-name">郭彪</div>
+            <div class="lead-role">产品总监</div>
+            <div class="lead-team">
+              <div>前端 · 1</div>
+              <div>后端 · 1</div>
+              <div>运营 · 1</div>
+            </div>
+          </div>
+          <div class="org-card">
+            <div class="lead-name">张心仪</div>
+            <div class="lead-role">合规 / 银行及渠道建设</div>
+            <div class="lead-team">
+              <div>执行 · 1 人</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 其他主体侧 -->
+      <div class="org-other-side">
+        <div class="label">关联其他主体<span class="badge">独立主体运营</span></div>
+          <div class="org-card other">
+          <div class="lead-name">张济显</div>
+          <div class="lead-role">俄罗斯业务</div>
+          <div class="lead-team">
+            <div>技术 · 4 人</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="org-salary">
+      <div class="salary-head">工资结构（月度 · 单位：元）</div>
+      <div class="salary-cols">
+        <div class="salary-col">
+          <div class="salary-tag">原来</div>
+          <div class="salary-row"><span>工资</span><strong>136,000</strong></div>
+          <div class="salary-row"><span>月均报销</span><strong>67,561</strong></div>
+        </div>
+        <div class="salary-col after">
+          <div class="salary-tag">以后</div>
+          <div class="salary-row"><span>工资</span><strong>285,000</strong></div>
+          <div class="salary-row"><span>月均报销</span><strong>141,580</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PAYMENT MATRIX ============== -->
+<section class="slide" id="payment">
+  <span class="eyebrow">02 · Payment Channel Matrix</span>
+  <h2>支付渠道矩阵</h2>
+  <p class="lede">围绕"白量渠道原生化、拓展弹性渠道"两大方向，已在全球落地合作支付服务商，覆盖商户的跨境收款与本地化支付需求。</p>
+
+  <div class="region-grid">
+    <div class="region-card">
+      <div class="region-name">全球<small>Global</small></div>
+      <div class="partners">
+        <div class="partner">Airwallex<span class="desc">跨境多币种收款</span></div>
+        <div class="partner">Antom<span class="desc">蚂蚁国际支付</span></div>
+      </div>
+    </div>
+    <div class="region-card">
+      <div class="region-name">日韩<small>JP / KR</small></div>
+      <div class="partners">
+        <div class="partner">HaiPay<span class="desc">日本本地支付</span></div>
+      </div>
+    </div>
+    <div class="region-card">
+      <div class="region-name">港台<small>HK / TW</small></div>
+      <div class="partners">
+        <div class="partner">MyCard<span class="desc">港台游戏点卡 / 钱包</span></div>
+        <div class="partner">JKOPay<span class="desc">港台本地电子钱包</span></div>
+      </div>
+    </div>
+    <div class="region-card russia">
+      <div class="region-name">俄罗斯<small>RU · 关联其他主体</small></div>
+      <div class="partners">
+        <div class="partner">Yoomoney<span class="desc">本地主流钱包</span></div>
+        <div class="partner">Paymaster<span class="desc">本地支付聚合</span></div>
+        <div class="partner">Dukpay<span class="desc">本地卡支付</span></div>
+      </div>
+    </div>
+    <div class="region-card">
+      <div class="region-name">拉美<small>LATAM</small></div>
+      <div class="partners">
+        <div class="partner">Dlocal<span class="desc">拉美本地收单</span></div>
+      </div>
+    </div>
+    <div class="region-card elastic">
+      <div class="region-name">拓展弹性渠道</div>
+      <div class="elastic-desc">覆盖白量尚未直连的新兴市场与长尾地区，提供可快速接入、可替换的资金通路，保障商户在不同政策环境下的资金稳定性。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TRACTION + FORECAST ============== -->
+<section class="slide" id="traction">
+  <span class="eyebrow">03 · Customer & Business Forecast</span>
+  <h2>客户合作 &amp; 业务预测</h2>
+  <p class="lede">已与 86 家游戏商户签约、覆盖 17 款金流游戏与 20 款工具游戏。预测 2026 年 9 月 — 2027 年 12 月，16 个月内累计实现 13.68M USD 收入。</p>
+
+  <div class="metric-strip">
+    <div class="metric">
+      <div class="v">86</div>
+      <div class="l"><strong>已注册商户</strong>签约游戏商户总量</div>
+    </div>
+    <div class="metric">
+      <div class="v">17</div>
+      <div class="l"><strong>金流游戏</strong>已接入支付金流的游戏产品</div>
+    </div>
+    <div class="metric">
+      <div class="v">20</div>
+      <div class="l"><strong>工具游戏</strong>使用建站 / 工具型产品的游戏</div>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <b>测算口径：</b>13.68M 为 2027.12 累计收入（含 2026.09 前历史基线约 3.44M）；10.24M 为 2026.09–2027.12 纯新增预测收入，单位均为 USD。下表「累计」列自 2026.09 起含历史基线，起点 3,802.55 K。
+  </div>
+
+  <div class="chart-wrap">
+    <div class="title-row">
+      <h3>月度收入构成 &amp; 累计预测</h3>
+      <span class="unit">单位：K USD · 2026.09 — 2027.12</span>
+    </div>
+    <div class="chart-box"><svg viewBox="0 0 940 470" style="width:100%;height:auto;display:block;" role="img" aria-label="月度收入构成与累计预测"><line x1="56" y1="372.0" x2="888" y2="372.0" stroke="rgba(42,58,96,.45)" stroke-width="1"/><text x="48" y="376.0" fill="#66789F" font-size="11" text-anchor="end">0</text><text x="896" y="376.0" fill="#E0BC4A" font-size="11" text-anchor="start">0</text><line x1="56" y1="308.4" x2="888" y2="308.4" stroke="rgba(42,58,96,.45)" stroke-width="1"/><text x="48" y="312.4" fill="#66789F" font-size="11" text-anchor="end">200</text><text x="896" y="312.4" fill="#E0BC4A" font-size="11" text-anchor="start">2545.45</text><line x1="56" y1="244.7" x2="888" y2="244.7" stroke="rgba(42,58,96,.45)" stroke-width="1"/><text x="48" y="248.7" fill="#66789F" font-size="11" text-anchor="end">400</text><text x="896" y="248.7" fill="#E0BC4A" font-size="11" text-anchor="start">5090.91</text><line x1="56" y1="181.1" x2="888" y2="181.1" stroke="rgba(42,58,96,.45)" stroke-width="1"/><text x="48" y="185.1" fill="#66789F" font-size="11" text-anchor="end">600</text><text x="896" y="185.1" fill="#E0BC4A" font-size="11" text-anchor="start">7636.36</text><line x1="56" y1="117.5" x2="888" y2="117.5" stroke="rgba(42,58,96,.45)" stroke-width="1"/><text x="48" y="121.5" fill="#66789F" font-size="11" text-anchor="end">800</text><text x="896" y="121.5" fill="#E0BC4A" font-size="11" text-anchor="start">10181.8</text><line x1="56" y1="53.8" x2="888" y2="53.8" stroke="rgba(42,58,96,.45)" stroke-width="1"/><text x="48" y="57.8" fill="#66789F" font-size="11" text-anchor="end">1000</text><text x="896" y="57.8" fill="#E0BC4A" font-size="11" text-anchor="start">12727.3</text><line x1="56" y1="372" x2="888" y2="372" stroke="#2A3A60" stroke-width="1.5"/><rect x="67.0" y="362.8" width="30" height="9.2" fill="#C9A227" rx="1.5"/><rect x="67.0" y="318.5" width="30" height="44.3" fill="#4A7DE0" rx="1.5"/><rect x="67.0" y="277.4" width="30" height="41.1" fill="#2FB6B0" rx="1.5"/><rect x="67.0" y="256.5" width="30" height="20.9" fill="#E08E45" rx="1.5"/><text x="82.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’26-09</text><rect x="119.0" y="361.0" width="30" height="11.0" fill="#C9A227" rx="1.5"/><rect x="119.0" y="307.8" width="30" height="53.2" fill="#4A7DE0" rx="1.5"/><rect x="119.0" y="258.5" width="30" height="49.3" fill="#2FB6B0" rx="1.5"/><rect x="119.0" y="233.4" width="30" height="25.0" fill="#E08E45" rx="1.5"/><text x="134.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’26-10</text><rect x="171.0" y="361.0" width="30" height="11.0" fill="#C9A227" rx="1.5"/><rect x="171.0" y="307.8" width="30" height="53.2" fill="#4A7DE0" rx="1.5"/><rect x="171.0" y="258.5" width="30" height="49.3" fill="#2FB6B0" rx="1.5"/><rect x="171.0" y="233.4" width="30" height="25.0" fill="#E08E45" rx="1.5"/><text x="186.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’26-11</text><rect x="223.0" y="361.0" width="30" height="11.0" fill="#C9A227" rx="1.5"/><rect x="223.0" y="307.8" width="30" height="53.2" fill="#4A7DE0" rx="1.5"/><rect x="223.0" y="258.5" width="30" height="49.3" fill="#2FB6B0" rx="1.5"/><rect x="223.0" y="233.4" width="30" height="25.0" fill="#E08E45" rx="1.5"/><text x="238.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’26-12</text><rect x="275.0" y="358.8" width="30" height="13.2" fill="#C9A227" rx="1.5"/><rect x="275.0" y="294.9" width="30" height="63.8" fill="#4A7DE0" rx="1.5"/><rect x="275.0" y="235.7" width="30" height="59.2" fill="#2FB6B0" rx="1.5"/><rect x="275.0" y="205.7" width="30" height="30.0" fill="#E08E45" rx="1.5"/><text x="290.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’27-01</text><rect x="327.0" y="358.8" width="30" height="13.2" fill="#C9A227" rx="1.5"/><rect x="327.0" y="294.9" width="30" height="63.8" fill="#4A7DE0" rx="1.5"/><rect x="327.0" y="235.7" width="30" height="59.2" fill="#2FB6B0" rx="1.5"/><rect x="327.0" y="205.7" width="30" height="30.0" fill="#E08E45" rx="1.5"/><text x="342.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’27-02</text><rect x="379.0" y="358.8" width="30" height="13.2" fill="#C9A227" rx="1.5"/><rect x="379.0" y="294.9" width="30" height="63.8" fill="#4A7DE0" rx="1.5"/><rect x="379.0" y="235.7" width="30" height="59.2" fill="#2FB6B0" rx="1.5"/><rect x="379.0" y="205.7" width="30" height="30.0" fill="#E08E45" rx="1.5"/><text x="394.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’27-03</text><rect x="431.0" y="356.1" width="30" height="15.9" fill="#C9A227" rx="1.5"/><rect x="431.0" y="279.5" width="30" height="76.6" fill="#4A7DE0" rx="1.5"/><rect x="431.0" y="208.5" width="30" height="71.0" fill="#2FB6B0" rx="1.5"/><rect x="431.0" y="172.4" width="30" height="36.0" fill="#E08E45" rx="1.5"/><text x="446.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’27-04</text><rect x="483.0" y="356.1" width="30" height="15.9" fill="#C9A227" rx="1.5"/><rect x="483.0" y="279.5" width="30" height="76.6" fill="#4A7DE0" rx="1.5"/><rect x="483.0" y="208.5" width="30" height="71.0" fill="#2FB6B0" rx="1.5"/><rect x="483.0" y="172.4" width="30" height="36.0" fill="#E08E45" rx="1.5"/><text x="498.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’27-05</text><rect x="535.0" y="356.1" width="30" height="15.9" fill="#C9A227" rx="1.5"/><rect x="535.0" y="279.5" width="30" height="76.6" fill="#4A7DE0" rx="1.5"/><rect x="535.0" y="208.5" width="30" height="71.0" fill="#2FB6B0" rx="1.5"/><rect x="535.0" y="172.4" width="30" height="36.0" fill="#E08E45" rx="1.5"/><text x="550.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’27-06</text><rect x="587.0" y="352.9" width="30" height="19.1" fill="#C9A227" rx="1.5"/><rect x="587.0" y="261.0" width="30" height="91.9" fill="#4A7DE0" rx="1.5"/><rect x="587.0" y="175.8" width="30" height="85.2" fill="#2FB6B0" rx="1.5"/><rect x="587.0" y="132.5" width="30" height="43.3" fill="#E08E45" rx="1.5"/><text x="602.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’27-07</text><rect x="639.0" y="352.9" width="30" height="19.1" fill="#C9A227" rx="1.5"/><rect x="639.0" y="261.0" width="30" height="91.9" fill="#4A7DE0" rx="1.5"/><rect x="639.0" y="175.8" width="30" height="85.2" fill="#2FB6B0" rx="1.5"/><rect x="639.0" y="132.5" width="30" height="43.3" fill="#E08E45" rx="1.5"/><text x="654.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’27-08</text><rect x="691.0" y="352.9" width="30" height="19.1" fill="#C9A227" rx="1.5"/><rect x="691.0" y="261.0" width="30" height="91.9" fill="#4A7DE0" rx="1.5"/><rect x="691.0" y="175.8" width="30" height="85.2" fill="#2FB6B0" rx="1.5"/><rect x="691.0" y="132.5" width="30" height="43.3" fill="#E08E45" rx="1.5"/><rect x="691.0" y="129.4" width="30" height="3.2" fill="#8A9BC4" rx="1.5"/><text x="706.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’27-09</text><rect x="743.0" y="349.1" width="30" height="22.9" fill="#C9A227" rx="1.5"/><rect x="743.0" y="238.8" width="30" height="110.3" fill="#4A7DE0" rx="1.5"/><rect x="743.0" y="136.6" width="30" height="102.2" fill="#2FB6B0" rx="1.5"/><rect x="743.0" y="84.6" width="30" height="51.9" fill="#E08E45" rx="1.5"/><rect x="743.0" y="80.8" width="30" height="3.8" fill="#8A9BC4" rx="1.5"/><text x="758.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’27-10</text><rect x="795.0" y="349.1" width="30" height="22.9" fill="#C9A227" rx="1.5"/><rect x="795.0" y="238.8" width="30" height="110.3" fill="#4A7DE0" rx="1.5"/><rect x="795.0" y="136.6" width="30" height="102.2" fill="#2FB6B0" rx="1.5"/><rect x="795.0" y="74.3" width="30" height="62.3" fill="#E08E45" rx="1.5"/><rect x="795.0" y="69.7" width="30" height="4.6" fill="#8A9BC4" rx="1.5"/><text x="810.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’27-11</text><rect x="847.0" y="349.1" width="30" height="22.9" fill="#C9A227" rx="1.5"/><rect x="847.0" y="238.8" width="30" height="110.3" fill="#4A7DE0" rx="1.5"/><rect x="847.0" y="136.6" width="30" height="102.2" fill="#2FB6B0" rx="1.5"/><rect x="847.0" y="61.8" width="30" height="74.8" fill="#E08E45" rx="1.5"/><rect x="847.0" y="56.3" width="30" height="5.5" fill="#8A9BC4" rx="1.5"/><text x="862.0" y="388.0" fill="#66789F" font-size="10" text-anchor="middle">’27-12</text><path d="M 82.0,276.9 L 82.0,276.9 L 134.0,266.0 L 186.0,255.2 L 238.0,244.3 L 290.0,231.2 L 342.0,218.1 L 394.0,205.1 L 446.0,189.4 L 498.0,173.7 L 550.0,158.0 L 602.0,139.2 L 654.0,120.4 L 706.0,101.3 L 758.0,78.5 L 810.0,54.7 L 862.0,29.9 L 862.0,372 L 82.0,372 Z" fill="rgba(224,188,74,.10)"/><polyline points="82.0,276.9 134.0,266.0 186.0,255.2 238.0,244.3 290.0,231.2 342.0,218.1 394.0,205.1 446.0,189.4 498.0,173.7 550.0,158.0 602.0,139.2 654.0,120.4 706.0,101.3 758.0,78.5 810.0,54.7 862.0,29.9" fill="none" stroke="#E0BC4A" stroke-width="2.5" stroke-linejoin="round"/><circle cx="82.0" cy="276.9" r="2.6" fill="#E0BC4A"/><circle cx="134.0" cy="266.0" r="2.6" fill="#E0BC4A"/><circle cx="186.0" cy="255.2" r="2.6" fill="#E0BC4A"/><circle cx="238.0" cy="244.3" r="2.6" fill="#E0BC4A"/><circle cx="290.0" cy="231.2" r="2.6" fill="#E0BC4A"/><circle cx="342.0" cy="218.1" r="2.6" fill="#E0BC4A"/><circle cx="394.0" cy="205.1" r="2.6" fill="#E0BC4A"/><circle cx="446.0" cy="189.4" r="2.6" fill="#E0BC4A"/><circle cx="498.0" cy="173.7" r="2.6" fill="#E0BC4A"/><circle cx="550.0" cy="158.0" r="2.6" fill="#E0BC4A"/><circle cx="602.0" cy="139.2" r="2.6" fill="#E0BC4A"/><circle cx="654.0" cy="120.4" r="2.6" fill="#E0BC4A"/><circle cx="706.0" cy="101.3" r="2.6" fill="#E0BC4A"/><circle cx="758.0" cy="78.5" r="2.6" fill="#E0BC4A"/><circle cx="810.0" cy="54.7" r="2.6" fill="#E0BC4A"/><circle cx="862.0" cy="29.9" r="2.6" fill="#E0BC4A"/><text x="16" y="16" fill="#66789F" font-size="10">K USD</text><text x="858" y="16" fill="#E0BC4A" font-size="10">累计K</text></svg></div><div style="margin-top:14px;display:flex;flex-wrap:wrap;"><span style="display:inline-flex;align-items:center;margin-right:16px;font-size:12px;color:#9DAECF;"><span style="background:#C9A227;width:14px;height:10px;display:inline-block;border-radius:2px;margin-right:6px;"></span>支付渠道</span><span style="display:inline-flex;align-items:center;margin-right:16px;font-size:12px;color:#9DAECF;"><span style="background:#4A7DE0;width:14px;height:10px;display:inline-block;border-radius:2px;margin-right:6px;"></span>UK 主体</span><span style="display:inline-flex;align-items:center;margin-right:16px;font-size:12px;color:#9DAECF;"><span style="background:#2FB6B0;width:14px;height:10px;display:inline-block;border-radius:2px;margin-right:6px;"></span>俄罗斯</span><span style="display:inline-flex;align-items:center;margin-right:16px;font-size:12px;color:#9DAECF;"><span style="background:#E08E45;width:14px;height:10px;display:inline-block;border-radius:2px;margin-right:6px;"></span>商城工具</span><span style="display:inline-flex;align-items:center;margin-right:16px;font-size:12px;color:#9DAECF;"><span style="background:#8A9BC4;width:14px;height:10px;display:inline-block;border-radius:2px;margin-right:6px;"></span>AI</span><span style="display:inline-flex;align-items:center;margin-right:16px;font-size:12px;color:#9DAECF;"><span style="border-bottom:3px solid #E0BC4A;height:0;width:14px;display:inline-block;margin-right:6px;"></span>累计收入(含历史)</span></div>
+  </div>
+
+  <div class="table-scroll">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>月份</th>
+        <th>支付渠道</th>
+        <th>UK 主体</th>
+        <th>俄罗斯</th>
+        <th>商城工具</th>
+        <th>AI</th>
+        <th class="col-total">月合计</th>
+        <th class="col-cum">累计</th>
+      </tr>
+    </thead>
+    <tbody><tr>
+      <td>2026-09</td>
+      <td>28.90 K</td>
+      <td>139.34 K</td>
+      <td>129.14 K</td>
+      <td>65.57 K</td>
+      <td>—</td>
+      <td class="col-total">362.95 K</td>
+      <td class="col-cum">3802.55 K</td>
+    </tr><tr>
+      <td>2026-10</td>
+      <td>34.68 K</td>
+      <td>167.21 K</td>
+      <td>154.96 K</td>
+      <td>78.68 K</td>
+      <td>—</td>
+      <td class="col-total">435.53 K</td>
+      <td class="col-cum">4238.09 K</td>
+    </tr><tr>
+      <td>2026-11</td>
+      <td>34.68 K</td>
+      <td>167.21 K</td>
+      <td>154.96 K</td>
+      <td>78.68 K</td>
+      <td>—</td>
+      <td class="col-total">435.53 K</td>
+      <td class="col-cum">4673.63 K</td>
+    </tr><tr>
+      <td>2026-12</td>
+      <td>34.68 K</td>
+      <td>167.21 K</td>
+      <td>154.96 K</td>
+      <td>78.68 K</td>
+      <td>—</td>
+      <td class="col-total">435.53 K</td>
+      <td class="col-cum">5109.16 K</td>
+    </tr><tr>
+      <td>2027-01</td>
+      <td>41.62 K</td>
+      <td>200.66 K</td>
+      <td>185.96 K</td>
+      <td>94.42 K</td>
+      <td>—</td>
+      <td class="col-total">522.66 K</td>
+      <td class="col-cum">5631.81 K</td>
+    </tr><tr>
+      <td>2027-02</td>
+      <td>41.62 K</td>
+      <td>200.66 K</td>
+      <td>185.96 K</td>
+      <td>94.42 K</td>
+      <td>—</td>
+      <td class="col-total">522.66 K</td>
+      <td class="col-cum">6154.46 K</td>
+    </tr><tr>
+      <td>2027-03</td>
+      <td>41.62 K</td>
+      <td>200.66 K</td>
+      <td>185.96 K</td>
+      <td>94.42 K</td>
+      <td>—</td>
+      <td class="col-total">522.66 K</td>
+      <td class="col-cum">6677.10 K</td>
+    </tr><tr>
+      <td>2027-04</td>
+      <td>49.94 K</td>
+      <td>240.79 K</td>
+      <td>223.15 K</td>
+      <td>113.30 K</td>
+      <td>—</td>
+      <td class="col-total">627.18 K</td>
+      <td class="col-cum">7304.27 K</td>
+    </tr><tr>
+      <td>2027-05</td>
+      <td>49.94 K</td>
+      <td>240.79 K</td>
+      <td>223.15 K</td>
+      <td>113.30 K</td>
+      <td>—</td>
+      <td class="col-total">627.18 K</td>
+      <td class="col-cum">7931.45 K</td>
+    </tr><tr>
+      <td>2027-06</td>
+      <td>49.94 K</td>
+      <td>240.79 K</td>
+      <td>223.15 K</td>
+      <td>113.30 K</td>
+      <td>—</td>
+      <td class="col-total">627.18 K</td>
+      <td class="col-cum">8558.62 K</td>
+    </tr><tr>
+      <td>2027-07</td>
+      <td>59.93 K</td>
+      <td>288.94 K</td>
+      <td>267.78 K</td>
+      <td>135.96 K</td>
+      <td>—</td>
+      <td class="col-total">752.61 K</td>
+      <td class="col-cum">9311.23 K</td>
+    </tr><tr>
+      <td>2027-08</td>
+      <td>59.93 K</td>
+      <td>288.94 K</td>
+      <td>267.78 K</td>
+      <td>135.96 K</td>
+      <td>—</td>
+      <td class="col-total">752.61 K</td>
+      <td class="col-cum">10063.84 K</td>
+    </tr><tr>
+      <td>2027-09</td>
+      <td>59.93 K</td>
+      <td>288.94 K</td>
+      <td>267.78 K</td>
+      <td>135.96 K</td>
+      <td>10.00 K</td>
+      <td class="col-total">762.61 K</td>
+      <td class="col-cum">10826.45 K</td>
+    </tr><tr>
+      <td>2027-10</td>
+      <td>71.91 K</td>
+      <td>346.73 K</td>
+      <td>321.33 K</td>
+      <td>163.15 K</td>
+      <td>12.00 K</td>
+      <td class="col-total">915.12 K</td>
+      <td class="col-cum">11741.58 K</td>
+    </tr><tr>
+      <td>2027-11</td>
+      <td>71.91 K</td>
+      <td>346.73 K</td>
+      <td>321.33 K</td>
+      <td>195.78 K</td>
+      <td>14.40 K</td>
+      <td class="col-total">950.15 K</td>
+      <td class="col-cum">12691.74 K</td>
+    </tr><tr>
+      <td>2027-12</td>
+      <td>71.91 K</td>
+      <td>346.73 K</td>
+      <td>321.33 K</td>
+      <td>234.94 K</td>
+      <td>17.28 K</td>
+      <td class="col-total">992.19 K</td>
+      <td class="col-cum">13683.94 K</td>
+    </tr><tr style="font-weight:700;background:rgba(201,162,39,.08);">
+      <td>16 个月合计</td>
+      <td>803.14 K</td>
+      <td>3872.33 K</td>
+      <td>3588.68 K</td>
+      <td>1926.52 K</td>
+      <td>53.68 K</td>
+      <td class="col-total">10244.35 K</td>
+      <td class="col-cum">13683.94 K</td>
+    </tr></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="8" style="padding:10px 14px; text-align:left; font-size:11px; color:var(--text-dim); font-weight:400; background:var(--panel);">
+          注：累计列自 2026.09 起含公司历史基线 ~3,439.60 K（自 2026.09 之前的累计收入），故 2026.09 当月累计起点为 3,802.55 K。
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+    <div class="scroll-hint">← 左右滑动查看完整表格 →</div>
+  </div>
+</section>
+
+<!-- ============== FINANCING ============== -->
+<section class="slide" id="financing">
+  <span class="eyebrow">04 · Financing Plan</span>
+  <h2>融资计划</h2>
+  <p class="lede">本轮计划融资 10M USD，重点投入 MOR 落地、合规牌照与 AI Token 模型 / 支付供应体系建设。资金节奏上，MOR 与合规将在 1 年内完成阶段性里程碑。</p>
+
+  <div class="ask-hero">
+    <div class="left">
+      <div class="ask-label">本轮融资</div>
+      <div class="ask-num">10M USD</div>
+      <div class="ask-sub">MOR + 合规 + AI Token 三大方向并行推进</div>
+    </div>
+    <div class="right">
+      <div>融资条件灵活，可让出财务控制权</div>
+      <div class="warn">需为后续投资引进保留空间</div>
+      <div>重点里程碑 1 年内可见（MOR 落地 + 合规牌照）</div>
+    </div>
+  </div>
+
+  <div class="use-grid">
+    <div class="use-card primary">
+      <div class="head">
+        <h3>MOR 落地（一年内完成）</h3>
+        <div class="pct">50%</div>
+      </div>
+      <div class="desc">优先突破美国、英国、日本、台湾四大市场，资金 50% 将专项用于美国 MOR 落地。</div>
+      <ul>
+        <li>美国 MOR 落地（资金重点）</li>
+        <li>英国 MOR 落地</li>
+        <li>日本 / 台湾 MOR 落地</li>
+      </ul>
+      <div class="timeline">里程碑 · <strong>1 年内完成</strong></div>
+    </div>
+
+    <div class="use-card green">
+      <div class="head">
+        <h3>合规牌照（一年内完成）</h3>
+        <div class="pct">—</div>
+      </div>
+      <div class="desc">同步推进 4 项关键牌照，为全球商户资金通路建立合规底座。</div>
+      <div class="licenses">
+        <div class="license"><div class="name">加拿大 MSB</div><div class="where">Canada</div></div>
+        <div class="license"><div class="name">香港 MSO</div><div class="where">Hong Kong</div></div>
+        <div class="license"><div class="name">新加坡 MAS</div><div class="where">Singapore</div></div>
+        <div class="license"><div class="name">PCI 数据合规</div><div class="where">Global</div></div>
+      </div>
+      <div class="timeline">里程碑 · <strong>1 年内完成</strong></div>
+    </div>
+
+    <div class="use-card purple">
+      <div class="head">
+        <h3>AI Token 模型 / 支付供应</h3>
+        <div class="pct">—</div>
+      </div>
+      <div class="desc">把 AI 站台搭建工具化、并以一站式模型建设降低商户接入门槛，通过跨境、落地金流渠道完成 AI 网站的支付能力闭环。</div>
+      <ul>
+        <li>AI Token 的模型供应：工具化 + 一站式模型建设</li>
+        <li>AI Token 的支付供应：跨境 / 落地金流渠道</li>
+      </ul>
+    </div>
+
+    <div class="use-card blue">
+      <div class="head">
+        <h3>工具 MaaS 化 &amp; 销售团队</h3>
+        <div class="pct">—</div>
+      </div>
+      <div class="desc">把建站器按效果付费方式对外输出，配套销售团队承接商户拓展与本地化服务。</div>
+      <ul>
+        <li>工具 MaaS 化：按效果付费</li>
+        <li>销售团队建设：覆盖重点区域</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="divider"></div>
+  KOP Global Network Limited · Investor Deck · 2026-09-02<br>
+  本文档为投资人沟通用，所有数据为内部测算，最终以正式协议为准。
+</footer>
+
+
+
+</body>
+</html>
