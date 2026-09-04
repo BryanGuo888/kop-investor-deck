@@ -45,9 +45,9 @@
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
     padding: 14px 36px;
-    display: flex; align-items: center; justify-content: space-between;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
   }
-  .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; justify-self: start; }
   .brand-mark {
     width: 28px; height: 28px; border-radius: 8px;
     background: linear-gradient(135deg, #C9A227 0%, #4A7DE0 100%);
@@ -56,7 +56,7 @@
   }
   .brand-text { font-size: 14px; letter-spacing: .3px; }
   .brand-text small { color: var(--text-soft); font-weight: 400; margin-left: 6px; }
-  .nav-links { display: flex; gap: 4px; }
+  .nav-links { display: flex; gap: 4px; justify-self: center; }
   .nav-links a {
     color: var(--text-soft); text-decoration: none; font-size: 13px;
     padding: 6px 12px; border-radius: 6px; transition: all .15s;
@@ -442,9 +442,10 @@
     .kpi-row, .metric-strip, .licenses,
     .use-grid, .strategy-row, .region-grid, .market-grid,
     .org-branches, .org-cards, .org-salary .salary-cols { grid-template-columns: 1fr; }
-    nav.topbar { padding: 10px 14px; }
+    nav.topbar { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; }
+    .brand { justify-self: auto; }
     .brand-text small { display: none; }
-    .nav-links { display: flex; overflow-x: auto; gap: 2px; -webkit-overflow-scrolling: touch; }
+    .nav-links { display: flex; justify-self: auto; overflow-x: auto; gap: 2px; -webkit-overflow-scrolling: touch; }
     .nav-links a { white-space: nowrap; padding: 6px 10px; font-size: 12px; }
     section.slide { padding: 48px 18px 36px; }
   }
@@ -467,7 +468,7 @@
 <nav class="topbar">
   <div class="brand">
     <div class="brand-mark">K</div>
-    <div class="brand-text">KOP Global Network Limited <small>投资人展示 · Sep 2026</small></div>
+    <div class="brand-text">KOP</div>
   </div>
   <div class="nav-links">
     <a href="#cover">概览</a>
@@ -482,11 +483,11 @@
 <!-- ============== COVER ============== -->
 <section class="slide cover" id="cover">
   <span class="eyebrow">Investor Deck · 2026</span>
-  <h1>KOP 建站 SAAS 及 AI 聚合站融资</h1>
+  <h1>KOP MOR 聚合金流及建站 SAAS 融资</h1>
   <div class="cover-tags">
-    <span class="t">AI 建站</span>
     <span class="t">跨境支付</span>
-    <span class="t">合规 SaaS</span>
+    <span class="t">合规 MOR</span>
+    <span class="t">AI 建站</span>
   </div>
   <div class="cover-meta">
     <span>公司主体<strong>KOP Global Network Limited</strong></span>
