@@ -177,6 +177,9 @@
     border-radius: 12px; padding: 16px 20px; text-align: center;
     font-weight: 700; font-size: 16px; max-width: 380px; margin: 0 auto 18px;
   }
+  .org-subs {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px;
+  }
   .org-ceo {
     background: linear-gradient(135deg, #1E2A52 0%, #243B82 100%);
     border: 1px solid #3B55A6; border-radius: 12px; padding: 18px 20px;
@@ -309,6 +312,11 @@
   .region-card .partner .desc {
     display: block; font-size: 11px; color: var(--text-dim);
     font-weight: 400; margin-top: 2px;
+  }
+  .region-card .partner .mor-tag {
+    display: inline-block; margin-left: 6px; padding: 1px 6px; font-size: 10px; font-weight: 700;
+    color: var(--accent); background: rgba(201,162,39,.16); border: 1px solid rgba(201,162,39,.5);
+    border-radius: 4px; vertical-align: middle; letter-spacing: .5px;
   }
   .region-card.russia { background: linear-gradient(180deg, rgba(47,182,176,.08) 0%, var(--panel) 100%); border-color: rgba(47,182,176,.3); }
   .region-card.russia .region-name { color: var(--kpop); }
@@ -470,7 +478,11 @@
     .cover h1 { font-size: clamp(26px, 7vw, 44px); }
     .kpi-row, .metric-strip, .licenses,
     .use-grid, .strategy-row, .region-grid, .market-grid,
-    .org-branches, .org-cards, .org-salary .salary-cols { grid-template-columns: 1fr; }
+    .org-branches, .org-cards, .org-salary .salary-cols,
+    .org-subs, .outlook-grid { grid-template-columns: 1fr; }
+    .outlook-grid .use-card { display: flex; align-items: center; gap: 14px; }
+    .outlook-grid .use-card .head { flex: 0 0 auto; }
+    .outlook-grid .use-card .desc { margin: 0; font-size: 12px; }
     nav.topbar { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; }
     .brand { justify-self: auto; }
     .brand-text small { display: none; }
@@ -513,7 +525,7 @@
 <!-- ============== COVER ============== -->
 <section class="slide cover" id="cover">
   <span class="eyebrow">00 · Overview</span>
-  <h1>KOP MOR 聚合金流及建站 SAAS 融资</h1>
+  <h1>KOP 全球跨境金流及建站 SaaS 工具</h1>
   <div class="cover-tags">
     <span class="t">跨境支付</span>
     <span class="t">合规 MOR</span>
@@ -522,7 +534,7 @@
   <div class="cover-meta">
     <span>公司主体<strong>KOP Global Network Limited</strong></span>
     <span>文档日期<strong>2026-09-02</strong></span>
-    <span>本轮融资<strong>10M USD</strong></span>
+    <span>本轮融资<strong>10×n MUSD</strong></span>
     <span><strong>16 人</strong>团队</span>
   </div>
 
@@ -548,11 +560,11 @@
   <div class="market-grid">
     <div class="market-col">
       <div class="m-head"><div class="m-num">01</div><div class="m-title">痛点 · Problem</div></div>
-      <div class="m-sub">游戏商户的三道门槛</div>
+      <div class="m-sub">游戏三方商城的三道门槛</div>
       <ul>
-        <li>自建站周期长、试错成本高</li>
-        <li>支付通道碎片化、成功率低</li>
-        <li>合规牌照门槛高、跨境受限</li>
+        <li>自建站周期长、营收难度高</li>
+        <li>支付通道碎片化、维护成本高</li>
+        <li>合规牌照门槛高、MOR 发展空间大</li>
       </ul>
     </div>
     <div class="market-col">
@@ -579,6 +591,11 @@
 
   <div class="org">
     <div class="org-entity">KOP Global Network Limited（主体）</div>
+    <div class="org-subs">
+      <div class="org-entity" style="max-width:none;margin:0;padding:12px 14px;font-size:13px;">KOPOINT TECHNOLOGY PTE.LTD<small style="display:block;margin-top:4px;font-size:11px;color:var(--text-dim);font-weight:400;">新加坡主体</small></div>
+      <div class="org-entity" style="max-width:none;margin:0;padding:12px 14px;font-size:13px;">KOP UK GLOBAL NETWORK LIMITED<small style="display:block;margin-top:4px;font-size:11px;color:var(--text-dim);font-weight:400;">英国主体</small></div>
+      <div class="org-entity" style="max-width:none;margin:0;padding:12px 14px;font-size:13px;">台北超好玩科技有限公司<small style="display:block;margin-top:4px;font-size:11px;color:var(--text-dim);font-weight:400;">中国台湾主体</small></div>
+    </div>
     <div class="org-line"></div>
     <div class="org-ceo">
       <div class="name">蔡志豪</div>
@@ -596,21 +613,21 @@
         <div class="org-cards">
           <div class="org-card">
             <div class="lead-name">销售团队</div>
-            <div class="lead-role">负责人</div>
+            <div class="lead-role">负责人 · 蔡志豪</div>
             <div class="lead-team">
               <div>销售 · 4 人</div>
             </div>
           </div>
           <div class="org-card">
-            <div class="lead-name">MOR 落地</div>
-            <div class="lead-role">负责人</div>
+            <div class="lead-name">MOR 落地+财务</div>
+            <div class="lead-role">负责人 · 蔡志豪</div>
             <div class="lead-team">
-              <div>执行 · 1 人</div>
+              <div>财务 · 1 人</div>
             </div>
           </div>
           <div class="org-card">
-            <div class="lead-name">郭彪</div>
-            <div class="lead-role">产品总监</div>
+            <div class="lead-name">产品总监</div>
+            <div class="lead-role">郭彪</div>
             <div class="lead-team">
               <div>前端 · 1</div>
               <div>后端 · 1</div>
@@ -618,8 +635,8 @@
             </div>
           </div>
           <div class="org-card">
-            <div class="lead-name">张心仪</div>
-            <div class="lead-role">合规 / 银行及渠道建设</div>
+            <div class="lead-name">合规 / 银行及渠道建设</div>
+            <div class="lead-role">张心仪</div>
             <div class="lead-team">
               <div>执行 · 1 人</div>
             </div>
@@ -631,8 +648,8 @@
       <div class="org-other-side">
         <div class="label">关联其他主体<span class="badge">独立主体运营</span></div>
           <div class="org-card other">
-          <div class="lead-name">张济显</div>
-          <div class="lead-role">俄罗斯业务</div>
+          <div class="lead-name">俄罗斯业务</div>
+          <div class="lead-role">张济显</div>
           <div class="lead-team">
             <div>技术 · 1 人</div>
             <div>财务 · 1 人</div>
@@ -670,8 +687,8 @@
     <div class="region-card">
       <div class="region-name">全球<small>Global</small></div>
       <div class="partners">
-        <div class="partner">Airwallex<span class="desc">跨境多币种收款</span></div>
-        <div class="partner">Antom<span class="desc">蚂蚁国际支付</span></div>
+        <div class="partner">Airwallex<span class="mor-tag">MOR</span><span class="desc">跨境多币种收款</span></div>
+        <div class="partner">Antom<span class="mor-tag">MOR</span><span class="desc">蚂蚁国际支付</span></div>
       </div>
     </div>
     <div class="region-card">
@@ -928,7 +945,7 @@
   <div class="ask-hero">
     <div class="left">
       <div class="ask-label">本轮融资</div>
-      <div class="ask-num">10M USD</div>
+      <div class="ask-num">10×n MUSD</div>
       <div class="ask-sub">MOR 落地+合规牌照+AI 工具 MaaS 三大方向并行推进</div>
     </div>
     <div class="right">
@@ -948,7 +965,7 @@
       <ul>
         <li>配合 MOR 落地</li>
         <li>拓展各地区落地金流</li>
-        <li>提升产品可接入弹性程度</li>
+        <li>建立销售资金及提升制度</li>
       </ul>
     </div>
 
@@ -981,7 +998,7 @@
     <div class="use-card purple">
       <div class="head">
         <h3>AI 工具 MAAS 化</h3>
-        <div class="pct">20%</div>
+        <div class="pct">10%</div>
       </div>
       <ul>
         <li>按效果付费</li>
@@ -993,7 +1010,7 @@
     <div class="use-card blue" style="grid-column: 1 / -1;">
       <div class="head">
         <h3>预留资金</h3>
-        <div class="pct">10%</div>
+        <div class="pct">20%</div>
       </div>
       <div class="desc">机动调配，应对市场与合规的不确定性，用于未预见的拓展机会。</div>
     </div>
@@ -1028,7 +1045,7 @@
     </div>
   </div>
 
-  <div class="outlook-cta">诚邀同行，共建游戏出海资金基础设施</div>
+  <div class="outlook-cta">拓展 MOR 各地主体，接入本地费率最低金流，反向全球化</div>
 </section>
 
 <footer>
