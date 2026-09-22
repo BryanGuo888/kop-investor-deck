@@ -480,9 +480,9 @@
     .use-grid, .strategy-row, .region-grid, .market-grid,
     .org-branches, .org-cards, .org-salary .salary-cols,
     .org-subs, .outlook-grid { grid-template-columns: 1fr; }
-    .outlook-grid .use-card { display: flex; align-items: center; gap: 14px; }
-    .outlook-grid .use-card .head { flex: 0 0 auto; }
-    .outlook-grid .use-card .desc { margin: 0; font-size: 12px; }
+    .outlook-grid .use-card { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 18px; }
+    .outlook-grid .use-card .head { width: 100%; }
+    .outlook-grid .use-card .desc { margin: 0; font-size: 13px; line-height: 1.5; }
     nav.topbar { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; }
     .brand { justify-self: auto; }
     .brand-text small { display: none; }
@@ -533,7 +533,7 @@
   </div>
   <div class="cover-meta">
     <span>公司主体<strong>KOP Global Network Limited</strong></span>
-    <span>文档日期<strong>2026-09-02</strong></span>
+    <span>文档日期<strong>2026-09-22</strong></span>
     <span>本轮融资<strong>10×n MUSD</strong></span>
     <span><strong>16 人</strong>团队</span>
   </div>
@@ -613,14 +613,14 @@
         <div class="org-cards">
           <div class="org-card">
             <div class="lead-name">销售团队</div>
-            <div class="lead-role">负责人 · 蔡志豪</div>
+            <div class="lead-role">蔡志豪</div>
             <div class="lead-team">
               <div>销售 · 4 人</div>
             </div>
           </div>
           <div class="org-card">
             <div class="lead-name">MOR 落地+财务</div>
-            <div class="lead-role">负责人 · 蔡志豪</div>
+            <div class="lead-role">蔡志豪</div>
             <div class="lead-team">
               <div>财务 · 1 人</div>
             </div>
@@ -713,9 +713,15 @@
       </div>
     </div>
     <div class="region-card">
-      <div class="region-name">拉美<small>LATAM</small></div>
+      <div class="region-name">拉美和非洲<small>LATAM / AFRICA</small></div>
       <div class="partners">
         <div class="partner">Dlocal<span class="desc">拉美本地收单</span></div>
+      </div>
+    </div>
+    <div class="region-card web3">
+      <div class="region-name">Web3<small>加密支付</small></div>
+      <div class="partners">
+        <div class="partner">OSL BizPay<span class="desc">持牌加密支付机构</span></div>
       </div>
     </div>
     <div class="region-card elastic">
@@ -1050,7 +1056,7 @@
 
 <footer>
   <div class="divider"></div>
-  KOP Global Network Limited · Investor Deck · 2026-09-02<br>
+  KOP Global Network Limited · Investor Deck · 2026-09-22<br>
   本文档为投资人沟通用，所有数据为内部测算，最终以正式协议为准。
 </footer>
 
